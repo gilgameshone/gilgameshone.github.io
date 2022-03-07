@@ -283,7 +283,9 @@ textarea {
     grid-area: sidebar;
     padding: 1em;
 }
-
+.nav h3{
+    font-size: 0.7em;
+}
 .header {
     font-family: monospace;
     grid-area: header;
