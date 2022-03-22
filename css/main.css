@@ -181,18 +181,19 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
     html {        font-size: 1.7em;
    }
-    .content {
+    #content {
         display: grid;
         grid-template-columns: 350px 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-template-areas: 
             "header header header header"
-            "table-of-contents outline-2 outline-2 outline-2"
+            "nav main main main"
             "footer footer footer footer";
         grid-column-gap: 10px;
     }
     .outline-2 {
         max-width: 38em;
+	grid-area: main;
     }
 }
 
@@ -281,17 +282,14 @@ textarea {
 
 
 
-.nav .table-of-contents{
-    font-family: monospace;
-    grid-area: sidebar;
+#table-of-contents {
+    grid-area: nav;
     padding: 1em;
 }
 .nav h3{
     font-size: 0.7em;
 }
 h1 {
-    
-    grid-area: header;
     font-size: 1.5em;
     text-decoration: underline;
     font-weight: bold;
@@ -307,13 +305,9 @@ h4 {
     font-size: 1.2em;
 }
 
-.main {
-    font-family: monospace;
-    grid-area: main;
-    padding: 1em;
-    
-}
+
 code {
+    font-family: monospace;
     background: #dcdcdc;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -347,3 +341,9 @@ a:hover, a:visted {
     -webkit-text-fill-color: transparent;
 }
 
+.title {
+grid-area: header;
+}
+#postamble {
+grid-area: footer;
+}
