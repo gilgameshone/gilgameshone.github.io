@@ -12,9 +12,11 @@
    ========================================================================== */
 
 html {
-  color: #222;
+  
   font-size: 1.3em;
-  line-height: 1.4;
+  margin: 30px;
+  font-family: Georgia, serif;
+
 }
 
 /*
@@ -179,17 +181,17 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
     html {        font-size: 1.7em;
    }
-    .container {
+    .content {
         display: grid;
         grid-template-columns: 350px 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-template-areas: 
             "header header header header"
-            "sidebar main main main"
+            "table-of-contents outline-2 outline-2 outline-2"
             "footer footer footer footer";
         grid-column-gap: 10px;
     }
-    .main{
+    .outline-2 {
         max-width: 38em;
     }
 }
@@ -268,6 +270,7 @@ textarea {
   h3 {
     orphans: 3;
     widows: 3;
+   
   }
 
   h2,
@@ -278,7 +281,7 @@ textarea {
 
 
 
-.nav {
+.nav .table-of-contents{
     font-family: monospace;
     grid-area: sidebar;
     padding: 1em;
@@ -286,14 +289,24 @@ textarea {
 .nav h3{
     font-size: 0.7em;
 }
-.header {
-    font-family: monospace;
+h1 {
+    
     grid-area: header;
-    padding: 1em;
+    font-size: 1.5em;
     text-decoration: underline;
     font-weight: bold;
-
 }
+
+h2 {
+font-size: 1.4em;
+}
+h3 {
+font-size: 1.3em;
+}
+h4 {
+    font-size: 1.2em;
+}
+
 .main {
     font-family: monospace;
     grid-area: main;
@@ -314,3 +327,23 @@ code {
 img {
     max-width: 100%;
 }
+p {
+    line-height: 1.5;
+    
+}
+p, h1, h2, h3, h4 {
+ color: #1B1B1B; 
+}
+a {
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(0,0,238,1) 0%, rgba(85,25,139,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+a:hover, a:visted {
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(85,25,139,1) 0%, rgba(0,0,238,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
