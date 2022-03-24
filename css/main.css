@@ -330,15 +330,13 @@ p, h1, h2, h3, h4 {
 }
 a {
     text-decoration: none;
-    background: linear-gradient(90deg, rgba(0,0,238,1) 0%, rgba(85,25,139,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: indigo;
+    
+    
 }
 a:hover, a:visted {
     text-decoration: none;
-    background: linear-gradient(90deg, rgba(85,25,139,1) 0%, rgba(0,0,238,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:  rebeccapurple;
 }
 
 .title {
@@ -367,7 +365,8 @@ ul ul {
 }
 #outline-container-org9035375 {
     grid-area: footer;
-    margin-left: 2em;
+    margin-left: 5em;
+    font-size: 0.7em;
 }
 #outline-container-orgf2b722b {
     margin-left: 2em;
