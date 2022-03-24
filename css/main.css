@@ -11,12 +11,11 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-  
+html {  
   font-size: 1.3em;
   margin: 30px;
   font-family: Georgia, serif;
-
+  background-color: ivory;
 }
 
 /*
@@ -320,6 +319,7 @@ code {
 }
 img {
     max-width: 100%;
+    padding: 25px 0px;
 }
 p {
     line-height: 1.5;
@@ -342,8 +342,29 @@ a:hover, a:visted {
 }
 
 .title {
-grid-area: header;
+    grid-area: header;
+}
+h1.title {
+    text-align: left;
+    padding-left: 20px;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    font-style: italic;
 }
 #postamble {
+grid-area: footer;
+}
+#org1c49c70, #table-of-contents>h2{
+    visibility: hidden;
+    display: none;
+}
+ul {
+margin-left: 0px;
+}
+ul ul {
+    margin-left: 0px;
+}
+#outline-container-org78e87a6 {
 grid-area: footer;
 }
