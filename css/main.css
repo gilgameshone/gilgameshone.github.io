@@ -190,7 +190,7 @@ textarea {
             "footer footer footer footer";
         grid-column-gap: 10px;
     }
-    .outline-2 {
+    .outline-2, .outline-3 {
         max-width: 38em;
 	grid-area: main;
     }
@@ -283,7 +283,7 @@ textarea {
 
 #table-of-contents {
     grid-area: nav;
-    padding: 1em;
+    padding: 1.2em;
 }
 .nav h3{
     font-size: 0.7em;
@@ -365,6 +365,16 @@ margin-left: 0px;
 ul ul {
     margin-left: 0px;
 }
-#outline-container-org78e87a6 {
-grid-area: footer;
+#outline-container-org9035375 {
+    grid-area: footer;
+    margin-left: 2em;
+}
+#outline-container-orgf2b722b {
+    margin-left: 2em;
+}
+#outline-container-orgf0756d6 {
+margin-left: 2em;
+}
+#outline-container-orga0633af {
+    padding-top: 1em;
 }
