@@ -6,6 +6,8 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 #+OPTIONS: num:nil
 #+OPTIONS: html-postamble:nil
+#+OPTIONS: html-scripts:nil
+#+OPTIONS: html-style:nil
 
 
 * An exploration into computer inputs and ergonomics

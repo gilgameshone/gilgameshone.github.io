@@ -190,10 +190,25 @@ textarea {
             "footer footer footer footer";
         grid-column-gap: 10px;
     }
-    .outline-2, .outline-3 {
+    #outline-container-orge9eb3ec {
         max-width: 38em;
 	grid-area: main;
     }
+    #outline-container-orgbd315a9 {
+	grid-area: footer;
+    }
+    
+#outline-container-orgbd315a9 {
+    margin-left: 5em;
+    font-size: 0.7em;
+}
+#outline-container-org2adba64 {
+    margin-left: 2em;
+}
+#outline-container-orgbf49658 {
+margin-left: 2em;
+}
+
 }
 
 @media print,
@@ -362,18 +377,3 @@ margin-left: 0px;
 }
 ul ul {
     margin-left: 0px;
-}
-#outline-container-org9035375 {
-    grid-area: footer;
-    margin-left: 5em;
-    font-size: 0.7em;
-}
-#outline-container-orgf2b722b {
-    margin-left: 2em;
-}
-#outline-container-orgf0756d6 {
-margin-left: 2em;
-}
-#outline-container-orga0633af {
-    padding-top: 1em;
-}
