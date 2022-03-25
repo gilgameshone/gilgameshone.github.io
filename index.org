@@ -1,5 +1,6 @@
 #+title: gilgamesh.one
 #+language: en
+#+author: gilgamesh
 #+export_file_name: index.html
 #+description: An exploration into computer inputs and ergonomics
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/main.css" />
