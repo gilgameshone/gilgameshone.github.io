@@ -187,28 +187,20 @@ textarea {
         grid-template-areas: 
             "header header header header"
             "nav main main main"
-            "footer footer footer footer";
+            ". footer footer footer";
         grid-column-gap: 10px;
     }
-    #outline-container-orge9eb3ec {
+    .outline-2:nth-child(1n) {
         max-width: 38em;
 	grid-area: main;
     }
-    #outline-container-orgbd315a9 {
+    .outline-2:nth-last-child(1) {
 	grid-area: footer;
+	font-size: 0.7em;
     }
-    
-#outline-container-orgbd315a9 {
-    margin-left: 5em;
-    font-size: 0.7em;
-}
-#outline-container-org2adba64 {
-    margin-left: 2em;
-}
-#outline-container-orgbf49658 {
-margin-left: 2em;
-}
-
+    .outline-2:nth-last-child(1) > .outline-3 {
+    margin-left: 2em;    
+    }
 }
 
 @media print,
