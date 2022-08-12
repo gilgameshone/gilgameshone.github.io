@@ -57,6 +57,3 @@ The next keyboard that I would like to try would be a split keyboard, such as a 
 ** Advice
 My advice for those looking to optimise their keyboard use and try out new layouts, would be to iterate slowly. I think that 80% of the gains can be made from changing to Dvorak or Colemak (two layouts that are better supported than the more extreme Halmak and have a larger community of users). For alpha key layouts, basically anything is better than QWERTY - it is that terrible. Some great advice that I got from [[https://paulguerin.medium.com/the-search-for-the-worlds-best-keyboard-layout-98d61b33b8e1][Paul Guerin]] was to chose the keyboard layout philosophy that you like the best, as you won’t realise what parts of a layout you dislike until you are heavily invested in learning it.  
 Next, I think I would suggest a split keyboard and also incorporate more thumb use and home row mods. A keyboard like the [[https://www.zsa.io/moonlander/][Moonlander]] from ZSA would fit the bill and be easily bought and used by most people. If you are more adventurous, you could try buliding your own. Even if you use a traditional keyboard that is not programable, you can incorporate home row mods and layers via software instead of firmware.
-* Contact
-** [[https://github.com/gilgameshone][github]]
-** [[https://twitter.com/gilgamesh_one][twitter]]

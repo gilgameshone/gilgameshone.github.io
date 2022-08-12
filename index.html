@@ -3,13 +3,197 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-07-05 Tue 16:08 -->
+<!-- 2022-08-12 Fri 13:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>gilgamesh.one</title>
 <meta name="author" content="gilgamesh" />
 <meta name="description" content="An exploration into computer inputs and ergonomics" />
 <meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 </head>
@@ -20,26 +204,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf427d6b">An exploration into computer inputs and ergonomics</a>
+<li><a href="#orgfde1d23">gilgamesh.one</a>
 <ul>
-<li><a href="#org2671d24">Ergonomics</a></li>
-<li><a href="#orgca688ab">The problems with QWERTY</a></li>
-<li><a href="#org342d894">Alternative ergonomic layouts</a></li>
-<li><a href="#orgaf16f2f">Alpha layout</a></li>
-<li><a href="#org0e86c08">Physical</a></li>
-<li><a href="#orgf4f6d8a">QMK</a></li>
-<li><a href="#orgb3b4b7c">The Planck</a></li>
-<li><a href="#orgc7dc2a4">Modifier keys</a></li>
-<li><a href="#orgcbf0155">Ortholinear versus horizontal stagger</a></li>
-<li><a href="#org6f7269e">Mechanical</a></li>
-<li><a href="#orga9654aa">Typing style</a></li>
-<li><a href="#orgd8ba966">Planck drawbacks</a></li>
-<li><a href="#org108bfab">Layout progression</a></li>
-<li><a href="#orge1e2877">Right hand dominance</a></li>
-<li><a href="#org6887963">Current layout</a></li>
-<li><a href="#org1fa1ce5">Future optimisations</a></li>
-<li><a href="#org859a282">Next keyboard</a></li>
-<li><a href="#org5957123">Advice</a></li>
+<li>
+<ul>
+<li><a href="#org917567e">Contact</a></li>
+</ul>
+</li>
+<li><a href="#org45f7b32">An exploration into computer inputs and ergonomics</a>
+<ul>
+<li><a href="#orgd868510">Ergonomics</a></li>
+<li><a href="#orgbe0d7ff">The problems with QWERTY</a></li>
+<li><a href="#orgfe82608">Alternative ergonomic layouts</a></li>
+<li><a href="#org4e06f88">Alpha layout</a></li>
+<li><a href="#org24e5514">Physical</a></li>
+<li><a href="#org9a93843">QMK</a></li>
+<li><a href="#org11872cb">The Planck</a></li>
+<li><a href="#org67ca8e9">Modifier keys</a></li>
+<li><a href="#orgde492a7">Ortholinear versus horizontal stagger</a></li>
+<li><a href="#org045932f">Mechanical</a></li>
+<li><a href="#org5d4a51f">Typing style</a></li>
+<li><a href="#org737d053">Planck drawbacks</a></li>
+<li><a href="#org8402612">Layout progression</a></li>
+<li><a href="#orgaedb114">Right hand dominance</a></li>
+<li><a href="#org06fda4e">Current layout</a></li>
+<li><a href="#orge2724a0">Future optimisations</a></li>
+<li><a href="#orge30b1d9">Next keyboard</a></li>
+<li><a href="#org39d5286">Advice</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -47,157 +240,171 @@
 </div>
 
 
-<div id="outline-container-orgf427d6b" class="outline-2">
-<h2 id="orgf427d6b">An exploration into computer inputs and ergonomics</h2>
-<div class="outline-text-2" id="text-orgf427d6b">
+<div id="outline-container-orgfde1d23" class="outline-2">
+<h2 id="orgfde1d23">gilgamesh.one</h2>
+<div class="outline-text-2" id="text-orgfde1d23">
 </div>
-<div id="outline-container-org2671d24" class="outline-3">
-<h3 id="org2671d24">Ergonomics</h3>
-<div class="outline-text-3" id="text-org2671d24">
+<div id="outline-container-org917567e" class="outline-4">
+<h4 id="org917567e">Contact</h4>
+<div class="outline-text-4" id="text-org917567e">
+</div>
+<ul class="org-ul">
+<li><a id="orgc0d9bc7"></a><a href="https://github.com/gilgameshone">github</a><br /></li>
+<li><a id="org1613140"></a><a href="https://twitter.com/gilgamesh_one">twitter</a><br /></li>
+</ul>
+</div>
+<div id="outline-container-org45f7b32" class="outline-3">
+<h3 id="org45f7b32">An exploration into computer inputs and ergonomics</h3>
+<div class="outline-text-3" id="text-org45f7b32">
+</div>
+<div id="outline-container-orgd868510" class="outline-4">
+<h4 id="orgd868510">Ergonomics</h4>
+<div class="outline-text-4" id="text-orgd868510">
 <p>
-I began this journey into ergonomics and computer inputs when I experienced discomfort while typing. As a writer, I experienced some discomfort after long sessions of typing that lasted around over three hours. I noticed particularly pain in my left hand after these long sessions. I also experienced discomfort in my little finger on my left hand after long editing sessions. I think this is a sensation that many will experience after using a computer for some time, as this is the digit primarily responsible for holding down modifier keys, such as control, so as to input commands into the computer rather than text.
+I began this journey into ergonomics and computer inputs when I experienced discomfort while typing. As a writer, I experienced some discomfort after long sessions of typing that lasted around over three hours. I noticed particularly pain in my left hand after these long sessions. I also experienced discomfort in my litter finger on my left hand after long editing sessions. I think this is a sensation that many will experience after using a computer for some time, as this is the digit primarily responsible for holding down modifier keys, such as control, so as to input commands into the computer rather than text.
 </p>
 </div>
 </div>
-<div id="outline-container-orgca688ab" class="outline-3">
-<h3 id="orgca688ab">The problems with QWERTY</h3>
-<div class="outline-text-3" id="text-orgca688ab">
+<div id="outline-container-orgbe0d7ff" class="outline-4">
+<h4 id="orgbe0d7ff">The problems with QWERTY</h4>
+<div class="outline-text-4" id="text-orgbe0d7ff">
 <p>
 So, the first thing that I sought to address was my keyboard layout. I grew up typing on a <a href="https://en.wikipedia.org/wiki/QWERTY">QWERTY</a> layout simply as it was the standard in the country I grew up in. After very little research, I learnt that the layout has its beginnings in 1878 for use on typewriters and I thought that it was unlikely to be most optimal for my use case for input into a computer and mainly for modern English and using the Web. One other major issues that struck me was that the home row was clearly poorly designed. Keyboards often have homing keys, keys with small bumps on, to help the typist orient themselves to the home row, but I noticed that the home row on QWERTY also includes the semicolon <code>;</code>. While this character may be common in certain programming languages, it is fairly uncommon in modern English. Even as a writer myself, I often have to look up the grammpatical rules that govern its use in prose. Also, if one takes a rudimentary glance at the QWERTY layout, there seems to be little reason for the placement of the vowels, <code>AEIOU</code>. Only one is situated on the home row. It seemed obvious to me that vowel letters must be typed often as they are required in nearly every English word. Even a very common English word like ‘the’ requires moving ones fingers away from the home row on QWERTY.
 </p>
 </div>
 </div>
-<div id="outline-container-org342d894" class="outline-3">
-<h3 id="org342d894">Alternative ergonomic layouts</h3>
-<div class="outline-text-3" id="text-org342d894">
+<div id="outline-container-orgfe82608" class="outline-4">
+<h4 id="orgfe82608">Alternative ergonomic layouts</h4>
+<div class="outline-text-4" id="text-orgfe82608">
 <p>
 Very soon after, I stumbled upon a famous pioneer in keyboard layout ergonomics, <a href="https://en.wikipedia.org/wiki/August_Dvorak">Dvorak</a>, and the <a href="https://en.wikipedia.org/wiki/Dvorak_keyboard_layout">layout</a> with his namesake. I began to attempt to learn this layout for a short while - an exercise that it fraught with frustration as one attempts to reprogram the muscle memory one has learnt of the mental map of the keyboard. This keyboard layout addresses some of my previous concerns on vowel placement, but I still did wonder if it was best for my use case. It would take a significant amount of mental effort to learn a new layout and I wanted to be sure I was making the right decision. As the Dvorak layout was created circa 1933, I still wondered it if suited modern English and was the most efficient.
 This led me to learn of many of the newer layouts such as <a href="http://mkweb.bcgsc.ca/carpalx/">Carpalx</a> iterations, <a href="https://colemak.com/">Colemak</a>, and <a href="https://workmanlayout.org">Workman</a>. I came across the Carpalx project first and its analytical methodology intrigued me. I found it interesting that these endeavours to optimise keyboard layouts often aimed to keep <code>Z</code>, <code>X</code>, <code>C</code>, and <code>V</code> in their original QWERTY locations for the ease of use of copy and paste shortcuts. I decided that I would go fully into optimising my layout and that I had no particular attachment to copy and paste shortcuts as I thought they could just be relearnt - as all other shortcuts would have to be.
 </p>
 </div>
 </div>
-<div id="outline-container-orgaf16f2f" class="outline-3">
-<h3 id="orgaf16f2f">Alpha layout</h3>
-<div class="outline-text-3" id="text-orgaf16f2f">
+<div id="outline-container-org4e06f88" class="outline-4">
+<h4 id="org4e06f88">Alpha layout</h4>
+<div class="outline-text-4" id="text-org4e06f88">
 <p>
 It was at this stage that I came across the <a href="https://github.com/MadRabbit/halmak">Halmak</a> layout. It was the product of a research project into the most optimal positions for letters on a keyboard layout in terms of reducing finger travel for keyboard use in modern web-based English. It resulted in nearly every letter moving and it fit the bill for me completely. It even moved punctuation towards the centre of the keyboard resulting in a faux split keyboard.
 I decided that I would attempt to learn Halmak but that I would learn on a new physical keyboard too, in the hopes that I may retain some memory of QWERTY by associating it with my old keyboard, and associating Halmak with the new one. (Fortunately, this assumption worked as expected.)
 </p>
 </div>
 </div>
-<div id="outline-container-org0e86c08" class="outline-3">
-<h3 id="org0e86c08">Physical</h3>
-<div class="outline-text-3" id="text-org0e86c08">
+<div id="outline-container-org24e5514" class="outline-4">
+<h4 id="org24e5514">Physical</h4>
+<div class="outline-text-4" id="text-org24e5514">
 <p>
 I had an interest in trying a mechanical keyboard, especially as my work keyboard was an especially-aged rubber-dome-type that took significant effort to press some keys past the point of most resistance of the rubber dome and actuate the key press. The first keyboards that caught my interest were split keyboards, allowing one to spread their hands out wide. Even a type of unique keyboard called a <a href="https://github.com/abstracthat/dactyl-manuform">Dactyl Manuform</a> particularly caught my eye as it included a concave key well with a convex thumb cluster. This seemed to match how I imagined my hand would prefer to move, but these types of keyboards often require the technical knowledge to build, wire and solder the keyboard by one’s self. As I needed to travel often for work and work on a variety of computers I opted for the <a href="https://ergodox-ez.com/pages/planck">Planck EZ</a> from ZSA. It is a small single unit making it easy to travel with, and is based on QMK firmware. This means that any changes I make to the layout will be recorded on the keyboard itself and would work on any computer with the same language settings. It was difficult to choose a unibody keyboard over a split keyboard. It only takes a few seconds to experiment with hand placement on one’s desk to see that one’s hands are far more comfortable at shoulder width. (This desire for a split keyboard remains unfulfilled.)
 </p>
 </div>
 </div>
-<div id="outline-container-orgf4f6d8a" class="outline-3">
-<h3 id="orgf4f6d8a">QMK</h3>
-<div class="outline-text-3" id="text-orgf4f6d8a">
+<div id="outline-container-org9a93843" class="outline-4">
+<h4 id="org9a93843">QMK</h4>
+<div class="outline-text-4" id="text-org9a93843">
 <p>
-The <a href="https://docs.qmk.fm/#/?id=what-is-qmk-firmware">QMK firmware</a> is incredible and offers many excellent options that I do not take advantage of. And with <a href="https://configure.zsa.io">ZSA’s software</a>, flashing your layout to the keyboard is quick and easy. Because is so easy to program, you are able to iterate and change your layout as you put it to the test. Some excellent features of QMK are Space Cadet Shift (the left shift key outputs shift on hold and open parenthesis on tap, and vice versa for the right shift key), CapsWORD (which seems far more useful that caps lock), One Shot Shift (sends the shifted version of the next key press only, as seen in iOS keyboards) and there are many more.
+The <a href="https://docs.qmk.fm/#/?id=what-is-qmk-firmware">QMK firmware</a> is incredible and offers many excellent options that I do not take advantage of. And with <a href="https://configure.zsa.io">ZSA’s software</a>, flashing your layout to the keyboard is quick and easy. Because is so easy to program, you are able to iterate and change your layout as you put it to the test. Some excellent features of QMK are Space Cadet Shift (the left shift key outputs shift on hold and open parenthesis on tap, and vice versa for the right shift key), Capsword (which seems far more useful that caps lock), One Shot Shift (sends the shifted version of the next key press only, as seen in iOS keyboards) and there are many more.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb3b4b7c" class="outline-3">
-<h3 id="orgb3b4b7c">The Planck</h3>
-<div class="outline-text-3" id="text-orgb3b4b7c">
+<div id="outline-container-org11872cb" class="outline-4">
+<h4 id="org11872cb">The Planck</h4>
+<div class="outline-text-4" id="text-org11872cb">
 <p>
 The Planck is a keyboard at 40% the size of a full size keyboard whose namesake is the famous mathematician Max Planck. It was created by <a href="https://olkb.com">Jack Humbert</a>. You are able to retain full functionality of a 102-key keyboard by using layers. These work similar to how shift works on regular keyboards, or how you can access numbers and symbols on a smart phone keyboard by the appropriate ‘move to layer’ key. This not only saves space and reduces the cost of the keyboard, it offers many more advantages, such as being able to have a number keypad directly beneath your home row. It helps you move your hand around the keyboard less and so reduces fatigue. The Planck allows for nearly every key to be placed within two keys of the home row. I have since iterated on this design and created a layout where every key is only one key away from the home row.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc7dc2a4" class="outline-3">
-<h3 id="orgc7dc2a4">Modifier keys</h3>
-<div class="outline-text-3" id="text-orgc7dc2a4">
+<div id="outline-container-org67ca8e9" class="outline-4">
+<h4 id="org67ca8e9">Modifier keys</h4>
+<div class="outline-text-4" id="text-org67ca8e9">
 <p>
 The layout I have designed by trial and error uses Halmak for placement of the alpha (alphabet) keys. Aside from the num pad (which I much prefer to a number row), I also began to move the modifier keys. These are typically placed surrounding the alpha keys (as they were developed later in the timeline of input technologies) but this places strain on the weakest of all digits, the little finger. Overuse of modifiers in such a position can lead to what has been called ‘emacs pinky’, (<a href="https://www.gnu.org/software/emacs/">emacs</a> being a text editor which heavily uses modifier presses.) The solution to this dilemma comes in the form of home row mods. As there are four modifier keys, shift, control, alt (option on macOS), and super (windows on Windows and command on macOS), they can very conveniently be placed on the four home row keys. This is a system used in the excellent <a href="https://github.com/manna-harbour/miryoku">Miryoku</a> layout and explained in detail by <a href="https://precondition.github.io/home-row-mods">Precondition</a>. Access to home row mods can be done by setting a key, <code>A</code>, to input <code>A</code> on a keypress but super when held down. I could not become accustomed to the typing cadence that was needed for such a system, so I opted for a design used in <a href="https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum#oneshot-modifiers">Callum-style</a> layouts where the modifiers are present on all other layers on the home row. It requires another keypress to activate the layer, but it seems far more responsive.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcbf0155" class="outline-3">
-<h3 id="orgcbf0155">Ortholinear versus horizontal stagger</h3>
-<div class="outline-text-3" id="text-orgcbf0155">
+<div id="outline-container-orgde492a7" class="outline-4">
+<h4 id="orgde492a7">Ortholinear versus horizontal stagger</h4>
+<div class="outline-text-4" id="text-orgde492a7">
 <p>
 Another quirk of traditional keyboard layouts is that the alpha keys are staggered horizontally. I.e. <code>Q</code> is not directly above <code>A</code>. This seems to be a requirement in typewriter technology to leave space for the key lever but is obviously unnecessary in electronic keyboards. The Planck has an orthogonally linear design which I found makes it easier to learn and remember where the keys are and allows the fingers to move in more predictable motions (instead of up and to the left, they only need move up). This introduces one inefficiency in my layout in that the Halmak research for optimal positions was conducted on horizontal stagger keyboards. This inefficiency is particularly noticeable in the placement of the letter <code>G</code>. Instead, I would refer to the finger effort map introduced by Workman (as it was designed for ortholinear keyboards) when choosing symbol and number placement. I have decided to leave the alphas as they are due to the difficulty in learning new positions. It is seemingly by far much easier to learn a new layout for symbols and numbers, and only takes a day or two to become proficient.
 </p>
 </div>
 </div>
-<div id="outline-container-org6f7269e" class="outline-3">
-<h3 id="org6f7269e">Mechanical</h3>
-<div class="outline-text-3" id="text-org6f7269e">
+<div id="outline-container-org045932f" class="outline-4">
+<h4 id="org045932f">Mechanical</h4>
+<div class="outline-text-4" id="text-org045932f">
 <p>
 The Planck EZ is a mechanical keyboard, meaning that it uses switches with springs rather than rubber domes to provide resistance to the keypress. I ordered my Planck EZ with <a href="http://m.kailhswitch.com/mechanical-keyboard-switches/key-switches/">Kaihl</a> speed silver switches which are very light and thus not fatiguing, and it is a linear type, meaning that they key moves up and down without added function such as a bump (tactile) or a audile click (clicky). The board is hot swappable meaning that the switches are not soldered on and are very easy to change. There are numerous switches available, and so with a mechanical keyboard you are more likely to find a key switch that gives you just the right feel.
 </p>
 </div>
 </div>
-<div id="outline-container-orga9654aa" class="outline-3">
-<h3 id="orga9654aa">Typing style</h3>
-<div class="outline-text-3" id="text-orga9654aa">
+<div id="outline-container-org5d4a51f" class="outline-4">
+<h4 id="org5d4a51f">Typing style</h4>
+<div class="outline-text-4" id="text-org5d4a51f">
 <p>
 It is worth noting that my original typing style on QWERTY is freestyle and my hands move to where I remember the keys are, and I do not use the ‘correct’ finger for the correct key. And I definitely do not use the correct modifier, by using alternate hands to press modifier and alpha chords. (Who uses right shift?!). So, as I was already taking on a fair endeavour by rearranging my alpha keys, I decided to learn proper touch typing style. I found <a href="https://monkeytype.com">Monkeytpe</a> to be an incredibly helpful tool. It even allows you to emulate a different layout if you would like to try others. I also found it helpful to be fairly unforgiving with myself on incorrect keypresses. I would retype the whole word if I made a mistake during my practice to learn the patterns of the words. Here, I found accuracy to be far more important than speed. I recommend regular daily practice. (Something which I had never bothered to do before.)
 </p>
 </div>
 </div>
-<div id="outline-container-orgd8ba966" class="outline-3">
-<h3 id="orgd8ba966">Planck drawbacks</h3>
-<div class="outline-text-3" id="text-orgd8ba966">
+<div id="outline-container-org737d053" class="outline-4">
+<h4 id="org737d053">Planck drawbacks</h4>
+<div class="outline-text-4" id="text-org737d053">
 <p>
 One downside of the Planck is that the upper most little finger keys (<code>Q</code> and <code>P</code> on QWERTY) are difficult to hit without moving one’s hand because of the short size of the pinky. Here it seems vertical stagger is most ergonomic. I think the <a href="https://blog.splitkb.com/blog/introducing-the-kyria">Kyria</a> has the best little finger stagger for a flat keyboard, or, alternatively, a Dactyl-like keyboard that has stagger in three dimensions.
 Another drawback of the Planck is that the spacebar is designed to be struck by both thumbs (it is 2u in size). However, as I endeavour to reduce little finger use and much as possible, I needed to assign more keys to the thumbs, one of our strongest digits. So, next I created a faux split on the board, moving keys like backspace, return, escape, and tab, to thumb keys or other stronger digits. This assigning of more keys to the thumbs is a design element that can be seen in the <a href="https://kinesis-ergo.com/shop/advantage2/">Kinesis Advantage 2</a> and the <a href="https://www.maltron.com/united-kingdom.html">Maltron</a>, and modern DIY keyboards like the Dactyl and the Kyria.
 </p>
 </div>
 </div>
-<div id="outline-container-org108bfab" class="outline-3">
-<h3 id="org108bfab">Layout progression</h3>
-<div class="outline-text-3" id="text-org108bfab">
+<div id="outline-container-org8402612" class="outline-4">
+<h4 id="org8402612">Layout progression</h4>
+<div class="outline-text-4" id="text-org8402612">
 <p>
  Below is heat map of most used keys on an earlier iteration of my layout. The heat map was captured while typing mostly prose during work.
 <img src="./img/heatmap.png" alt="heatmap.png" />
 To see how this layout on the Planck progressed, you can see my earlier layouts on the ZSA configurator tool, Oryx.
-<a href="https://configure.zsa.io/planck-ez/layouts/Wrqyj/KLpxX/0">Halmak2.7</a> is an iteration of my layout inspired by the Miryoku layout. It has reduced finger travel and increased thumb use.
-<a href="https://configure.zsa.io/planck-ez/layouts/wEdOq/l0vPD/0">Halmak2.0</a> is close to my original layout with only a few changes from the stock Planck layout. This would be most familar to a traditional keyboard user.
+<a href="https://configure.zsa.io/planck-ez/layouts/Wrqyj/KLpxX/0">Halmak2.7</a>, a layout inspired by the Miryoku layout, where finger travel is reduced and thumb use is increased.
+<a href="https://configure.zsa.io/planck-ez/layouts/wEdOq/l0vPD/0">Halmak2.0</a>, my original layout with few changes from the stock Planck layout. This would be most familar to a traditional keyboard user.
 </p>
 </div>
 </div>
-<div id="outline-container-orge1e2877" class="outline-3">
-<h3 id="orge1e2877">Right hand dominance</h3>
-<div class="outline-text-3" id="text-orge1e2877">
+<div id="outline-container-orgaedb114" class="outline-4">
+<h4 id="orgaedb114">Right hand dominance</h4>
+<div class="outline-text-4" id="text-orgaedb114">
 <p>
 One major change I made while iterating on my layout was the placement of the layer keys for the number layer and the navigation layer. I am right handed so I prefer having the numpad on my right hands, accessed by my left thumb. But this is also true for my navigation layer. My navigation layer was inspired by Miryoku and has all arrow keys in a row. But with both requiring a dedicated left thumb key, one was always further away from the home thumb position and led to contortion and curling of the thumb. I bit the bullet and moved the nav layer to the left hand. One surprising benefit is that the right arrow is no longer on the right little finger home row key, it is on the left index finger home row key. This finger is much stronger and better suited to English (left-right language) computing. It is far more likely that you will move down and right through a document or a file system as the cursor usually begins at the top left. In suit, I placed the down arrow key on my left middle finger.
 </p>
 </div>
 </div>
-<div id="outline-container-org6887963" class="outline-3">
-<h3 id="org6887963">Current layout</h3>
-<div class="outline-text-3" id="text-org6887963">
+<div id="outline-container-org06fda4e" class="outline-4">
+<h4 id="org06fda4e">Current layout</h4>
+<div class="outline-text-4" id="text-org06fda4e">
 <p>
 This is my current layout. It uses only simple MO layer changes (which keeps it responsive) and now uses three thumb keys per hand. A recent addition that I have made to this layout is to include closing brackets on double tap. This has freed up some real estate and is something that I may expand on for other symbols. I have also added CapsWORD as it has been added to ZSA's QMK branch recently.
-<img src="./img/gilgamesh-layout-3.png" alt="gilgamesh-layout-3.png" />
+<img src="./img/Gilgamesh-Halmak-Tron.drawio.png" alt="Gilgamesh-Halmak-Tron.drawio.png" />
+Currently I am also experimenting with Japanese kana shift input. It is based on the <a href="http://xahlee.info/kbd/TRON_keyboard.html">Tron</a> layout, because I thought that the homerow kana layout to seemed somewhat similar to Dvorak in English. This system runs on JIS as its base and only changes the logical layout. So, it is not a true <a href="https://en.wikipedia.org/wiki/Thumb-shift_keyboard">thumb-shift layout</a>. It is based on QMK Planck raise, lower and adjust layers. I have since adapted it from the original Tron layout by adding dakuten via dedicated dakuten keys on the "adjust" layer (inspired by the fascinating <a href="http://oookaworks.seesaa.net/article/456099128.html#gsc.tab=0">薙刀式</a> [Naginata] layout). I have also added small kanas on double tap rather than dedicated keys. And, I have de-empasised the center columns. It suits my amateur Japanese typing but would love to hear anyone's thoughts on this.
 </p>
 </div>
 </div>
-<div id="outline-container-org1fa1ce5" class="outline-3">
-<h3 id="org1fa1ce5">Future optimisations</h3>
-<div class="outline-text-3" id="text-org1fa1ce5">
+<div id="outline-container-orge2724a0" class="outline-4">
+<h4 id="orge2724a0">Future optimisations</h4>
+<div class="outline-text-4" id="text-orge2724a0">
 <p>
 Optimisations that I have heard of but not opted for are ordering numbers according to use frequency, such as in the <a href="https://www.jonashietala.se/blog/2021/06/03/the-t-34-keyboard-layout/">T-34</a> layout, rather than ascending or descending, and assigning the letter E to a thumb rather than a finger due to its vast use frequency in European languages. I think both have their merits but I am not interested in exploring them at this time. I would prefer to get more efficient with my current layout.
 </p>
 </div>
 </div>
-<div id="outline-container-org859a282" class="outline-3">
-<h3 id="org859a282">Next keyboard</h3>
-<div class="outline-text-3" id="text-org859a282">
+<div id="outline-container-orge30b1d9" class="outline-4">
+<h4 id="orge30b1d9">Next keyboard</h4>
+<div class="outline-text-4" id="text-orge30b1d9">
 <p>
 The next keyboard that I would like to try would be a split keyboard, such as a Dactyl Manuform type, likely a <a href="https://bastardkb.com/skeletyl/">Skeletyl</a>, or a Kyria, or a low profile <a href="https://www.cuddlykeyboards.com">Ferris</a> keyboard. I am also interested in removing the need to move my hand to the mouse and having a trackball either closer to my right hand or integrated into the keyboard such as in the <a href="https://bastardkb.com/charybdis/">Charybdis</a> or the <a href="https://kbd.news/Os-eruditio-1229.html">Os Eruditio</a> setup.
 </p>
 </div>
 </div>
-<div id="outline-container-org5957123" class="outline-3">
-<h3 id="org5957123">Advice</h3>
-<div class="outline-text-3" id="text-org5957123">
+<div id="outline-container-org39d5286" class="outline-4">
+<h4 id="org39d5286">Advice</h4>
+<div class="outline-text-4" id="text-org39d5286">
 <p>
 My advice for those looking to optimise their keyboard use and try out new layouts, would be to iterate slowly. I think that 80% of the gains can be made from changing to Dvorak or Colemak (two layouts that are better supported than the more extreme Halmak and have a larger community of users). For alpha key layouts, basically anything is better than QWERTY - it is that terrible. Some great advice that I got from <a href="https://paulguerin.medium.com/the-search-for-the-worlds-best-keyboard-layout-98d61b33b8e1">Paul Guerin</a> was to chose the keyboard layout philosophy that you like the best, as you won’t realise what parts of a layout you dislike until you are heavily invested in learning it.
 Next, I think I would suggest a split keyboard and also incorporate more thumb use and home row mods. A keyboard like the <a href="https://www.zsa.io/moonlander/">Moonlander</a> from ZSA would fit the bill and be easily bought and used by most people. If you are more adventurous, you could try buliding your own. Even if you use a traditional keyboard that is not programable, you can incorporate home row mods and layers via software instead of firmware.
@@ -205,6 +412,12 @@ Next, I think I would suggest a split keyboard and also incorporate more thumb u
 </div>
 </div>
 </div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: gilgamesh</p>
+<p class="date">Created: 2022-08-12 Fri 13:07</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
